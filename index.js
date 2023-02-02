@@ -86,7 +86,6 @@ const delay = async (timeInMs) => {
             "GM",
             "how are you?",
         ];
-        const hello = helloArray[Math.floor(Math.random() * helloArray.length)];
         while (true) {
             const getMessage = await getMessages(1);
             if (!getMessage[0].id) {
@@ -106,7 +105,10 @@ const delay = async (timeInMs) => {
                         discord.channelId +
                         "/messages",
                     JSON.stringify({
-                        content: hello,
+                        content:
+                            helloArray[
+                                Math.floor(Math.random() * helloArray.length)
+                            ],
                         message_reference: {
                             message_id: getMessage[0].id,
                         },
@@ -138,7 +140,10 @@ const delay = async (timeInMs) => {
                         discord.channelId +
                         "/messages",
                     JSON.stringify({
-                        content: hello,
+                        content:
+                            helloArray[
+                                Math.floor(Math.random() * helloArray.length)
+                            ],
                     }),
                     {
                         headers: {
